@@ -17,6 +17,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.works {
+  margin-top: 100px;
+}
 .title {
   font-family: Heebo, sans-serif;
   font-style: normal;
@@ -24,5 +27,12 @@ export default {
   font-size: 44px;
   line-height: 60px;
   color: #21243D;
+}
+@media (max-width: 370px) {
+  .title {
+    font-size: 24px;
+    line-height: 10px;
+    text-align: center;
+  }
 }
 </style>

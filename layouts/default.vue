@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="body">
     <the-header @closeBar="showNavbar = !showNavbar"/>
     <the-sidenav :show="showNavbar" @closeBar="showNavbar = false"/>
-    <nuxt/>
+    <div class="main">
+      <nuxt/>
+    </div>
     <the-footer/>
   </div>
 </template>
@@ -24,4 +26,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.main {
+  position: relative;
+  flex: 1 1 auto;
+}
 </style>

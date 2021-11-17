@@ -13,9 +13,9 @@
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
               Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
             </p>
-            <button class="btn about-btn">
+            <a href="/resume.pdf" download="" class="btn about-btn">
               Download Resume
-            </button>
+            </a>
           </div>
           <div class="about__avatar">
           </div>
@@ -26,7 +26,7 @@
         <div class="container posts-container">
           <div class="posts__title">
             <h5 class="title-container">Recent posts</h5>
-            <p><a href="#" class="link__pacific-color">view all</a></p>
+            <p><nuxt-link to="/blog" class="link__pacific-color">view all</nuxt-link></p>
           </div>
           <div class="posts__item">
             <div class="posts__content">
@@ -53,7 +53,7 @@
 
       <section class="works">
         <div class="container works-container">
-          <h5 class="title-container">Featured works</h5>
+          <h5 class="title-container title-works">Featured works</h5>
           <works-list/>
         </div>
       </section>
@@ -105,7 +105,6 @@ export default {
     border-radius: 50%;
   }
 }
-
 // posts page
 .posts {
   background: #EDF7FA;
@@ -127,14 +126,7 @@ export default {
     width: 420px;
     padding: 25px;
     background-color: #ffffff;
-  }
-  .title-content {
-    font-family: Heebo, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 26px;
-    line-height: 38px;
-    color: #21243D;
+    margin-bottom: 10px;
   }
   &__info {
     font-family: Heebo, sans-serif;
@@ -147,12 +139,39 @@ export default {
   }
 }
 
-.title-container {
-  font-family: Heebo, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 60px;
-  color: #21243D;
+@media (max-width: 370px) {
+  .about {
+    padding: 25px 0;
+    &-container {
+      justify-content: center;
+      text-align: center;
+      margin: 0 15px;
+    }
+    &__content {
+      align-items: center;
+    }
+    &__title {
+      font-size: 20px;
+      line-height: 35px;
+      margin-top: 10px;
+    }
+    &__avatar {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .posts {
+    &__content {
+      padding: 15px;
+    }
+    &__info {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+  }
+  .title-works {
+    text-align: center;
+    line-height: 25px;
+  }
 }
 </style>

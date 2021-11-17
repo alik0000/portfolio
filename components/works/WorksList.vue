@@ -2,7 +2,7 @@
   <article class="works__content">
     <div class="works__item">
       <div class="works_margin-img image-dashboard">
-        <img src="~/assets/img/portraits.png" alt="portraits">
+<!--        <img src="~/assets/img/portraits.png" alt="portraits">-->
       </div>
       <div class="works__body">
         <h4 class="works__title">
@@ -21,7 +21,7 @@
 
     <div class="works__item">
       <div class="works_margin-img image-portraits">
-        <img src="~/assets/img/designing.png" alt="">
+<!--        <img src="~/assets/img/designing.png" alt="">-->
       </div>
       <div class="works__body">
         <h4 class="works__title">
@@ -40,7 +40,7 @@
 
     <div class="works__item">
       <div class="works_margin-img image-typography">
-        <img src="~/assets/img/typography.png" alt="">
+<!--        <img src="~/assets/img/typography.png" alt="">-->
       </div>
       <div class="works__body">
         <h4 class="works__title">
@@ -70,7 +70,7 @@ export default {
 .works {
   &__item {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     border-bottom: 1px solid rgba(68, 68, 68, 0.44);
     padding: 20px 0;
   }
@@ -83,6 +83,29 @@ export default {
     font-weight: bold;
     font-size: 30px;
     color: #21243D;
+  }
+}
+.image-portraits {
+  @include img("~/assets/img/portraits.png");
+}
+.image-dashboard {
+  @include img("~/assets/img/designing.png");
+}
+.image-typography {
+  @include img("~/assets/img/typography.png");
+}
+
+@media (max-width: 370px) {
+  .works {
+    &__item {
+      justify-content: center;
+      text-align: center;
+    }
+    &__title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 10px;
+    }
   }
 }
 </style>

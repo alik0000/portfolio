@@ -8,8 +8,8 @@
           </nuxt-link>
         </li>
         <li class="navigation-item">
-          <nuxt-link to="/block">
-            Block
+          <nuxt-link to="/blog">
+            Blog
           </nuxt-link>
         </li>
         <li class="navigation-item">
@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .sidenav {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.82);
   position: fixed;
   left: 0;
   top: 60px;

@@ -19,6 +19,7 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0;
 }
 .wrapper {
+  height: 100%;
   left: 0;
   top: 0;
   margin: 0;
@@ -37,31 +38,35 @@ h1, h2, h3, h4, h5, h6, p {
   line-height: 23px;
   color: #21243D;
 }
+
+.button__area{
+  display: flex;
+  align-items: center;
+}
 .btn {
-  position: relative;
-  place-content: center;
-  place-items: center;
-  width: fit-content;
-  height: 100%;
-  text-decoration: none;
-  padding: 0.5rem 1.5rem;
-  white-space: nowrap;
-  outline: none;
-  letter-spacing: 1px;
-  background: #FF6464;
-  border: #FF6464;
-  border-radius: 2px;
-  transition: all 0.22s;
-  color: white;
-  cursor: pointer;
   font-family: Heebo, sans-serif;
-  font-style: normal;
+  color: #fff;
+  display: block;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  height: 100%;
+  outline: none;
+  font-size: 18px;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 29px;
-  &:hover {
-    opacity: 0.8;
-  }
+  border-radius: 6px;
+  cursor: pointer;
+  flex-wrap: nowrap;
+  background: crimson;
+  border: 2px solid crimson;
+  transition: all 0.3s ease;
+}
+.btn:hover{
+  color: crimson;
+  background: none;
+}
+.works__body {
+  max-width: 70%;
+  justify-self: flex-start;
 }
 .works__info {
   margin: 20px 0;
@@ -88,4 +93,84 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .icons {
   cursor: pointer;
+}
+.posts {
+  background: #EDF7FA;
+  padding-bottom: 10px;
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__content {
+    width: 420px;
+    padding: 25px;
+    background-color: #ffffff;
+  }
+  &__info {
+    font-family: Heebo, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 26px;
+    color: #21243D;
+    margin: 10px 0;
+  }
+}
+.title-content {
+  font-family: Heebo, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 38px;
+  color: #21243D;
+}
+.title-container {
+  font-family: Heebo, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 60px;
+  color: #21243D;
+}
+@media (max-width: 370px) {
+  .container {
+    margin: 10px 15px;
+  }
+  .text {
+    font-size: 14px;
+    line-height: 23px;
+  }
+  .title-content {
+    font-size: 17px;
+    line-height: 20px;
+    color: #21243D;
+  }
+  .title-container {
+    font-size: 18px;
+    line-height: 50px;
+  }
+  .works__info {
+    margin: 10px auto;
+    justify-content: center;
+  }
+  .works__year {
+    width: 62px;
+    height: 27px;
+    background: #142850;
+    border-radius: 16px;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    text-align: center;
+    margin-right: 10px;
+  }
+  .works__category {
+    font-family: Heebo, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 29px;
+    color: #8695A4;
+  }
 }
