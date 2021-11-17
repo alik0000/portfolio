@@ -6,7 +6,7 @@
       <div class="column__left">
         <div class="title-container">Get in Touch</div>
         <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos harum corporis fuga corrupti. Doloribus quis soluta nesciunt veritatis vitae nobis?</p>
-        <div class="icons">
+        <div class="contact__icons">
           <div class="row">
             <fa :icon="['fas', 'user']" size="2x"/>
             <div class="info">
@@ -32,23 +32,30 @@
       </div>
       <div class="column__right">
         <div class="title-container">Message me</div>
-        <form action="#" class="from">
-          <div class="contact__fields">
-            <div class="form__field field__name">
-              <input type="text" placeholder="Name" required>
+        <validation-observer v-slot="{ handleSubmit }">
+          <form action="" class="from" @submit.prevent="handleSubmit(send)">
+            <div class="contact__fields">
+              <div class="form__field field__name">
+                  <input type="text" placeholder="Name" v-model="dataForm.name" required>
+              </div>
+              <div class="form__field field__email">
+                <validation-provider
+                  rules="email"
+                  v-slot="{ errors }">
+                <input type="email" placeholder="Email" v-model="dataForm.email" :class="{invalid: errors[0]}">
+                  <div class="error">{{ errors[0] }}</div>
+                </validation-provider>
+              </div>
             </div>
-            <div class="form__field field__email">
-              <input type="email" placeholder="Email" required>
+            <div class="form__field field__text">
+              <input type="text" placeholder="Subject" v-model="dataForm.subject" required>
             </div>
-          </div>
-          <div class="form__field field__text">
-            <input type="text" placeholder="Subject" required>
-          </div>
-          <div class="form__field field__textarea">
-            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
-          </div>
-          <button type="submit" class="btn btn_margin">Send message</button>
-        </form>
+            <div class="form__field field__textarea">
+              <textarea cols="30" rows="10" placeholder="Message.." v-model="dataForm.message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn_margin" :disabled="invalid" title="Available after filling all field!">Send message</button>
+          </form>
+        </validation-observer>
       </div>
     </div>
   </div>
@@ -56,8 +63,48 @@
 </template>
 
 <script>
+import { ValidationObserver, ValidationProvider } from 'vee-validate'
+
 export default {
-  name: "index"
+  name: "index",
+  data () {
+    return {
+      dataForm: {
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      }
+    }
+  },
+  methods: {
+    send() {
+      try {
+        this.$mail.send({
+          from: this.email,
+          subject: this.subject,
+          text: this.message
+        })
+        console.log('Success')
+        this.dataForm.name = ''
+        this.dataForm.email = ''
+        this.dataForm.subject = ''
+        this.dataForm.message = ''
+      } catch (err) {
+        console.error('Error', err)
+      }
+
+    }
+  },
+  computed: {
+    invalid() {
+      return !this.dataForm.name || !this.dataForm.email || !this.dataForm.subject || !this.dataForm.message
+    }
+  },
+  components: {
+    'validation-observer': ValidationObserver,
+    'validation-provider': ValidationProvider,
+  }
 }
 </script>
 
@@ -82,6 +129,7 @@ export default {
   width: 50%;
 }
 .row {
+  width: fit-content;
   display: flex;
   align-items: center;
   margin-top: 15px;
@@ -95,7 +143,7 @@ export default {
 .form__field{
   height: 45px;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 .contact__fields {
   display: flex;
@@ -105,6 +153,10 @@ export default {
 .field__textarea{
   height: 80px;
   width: 100%;
+}
+.invalid {
+  border-color: crimson;
+  color: crimson;
 }
 input,
 textarea{
@@ -119,11 +171,8 @@ textarea{
   transition: all 0.3s ease;
 
 }
-.form__field .field__input:focus,
-.form__field .field__textarea .field__textarea:focus{
-  border-color: #b3b3b3;
+input:focus,
+textarea:focus{
+  border-color: #545454;
 }
-//.btn_margin {
-  //margin-top: 10px;
-//}
 </style>

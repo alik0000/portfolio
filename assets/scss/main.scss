@@ -59,6 +59,13 @@ h1, h2, h3, h4, h5, h6, p {
   background: crimson;
   border: 2px solid crimson;
   transition: all 0.3s ease;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 1!important;
+    background: #eee!important;
+    border-color: rgba(0, 0, 0, 0.48) !important;
+    color: #999!important;
+  }
 }
 .btn:hover{
   color: crimson;
@@ -72,6 +79,11 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 20px 0;
   display: flex;
 }
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
 .works__year {
   width: 62px;
   height: 27px;
