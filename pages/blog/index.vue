@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.blog {
+  margin-top: 90px;
+}
 .blog__item {
   display: flex;
   flex-direction: column;

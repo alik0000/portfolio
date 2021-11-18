@@ -1,4 +1,3 @@
-
 html {
   font-family: 'Heebo', sans-serif;
   padding: 0;
@@ -66,10 +65,10 @@ h1, h2, h3, h4, h5, h6, p {
     border-color: rgba(0, 0, 0, 0.48) !important;
     color: #999!important;
   }
-}
-.btn:hover{
-  color: crimson;
-  background: none;
+  &:hover{
+    color: crimson;
+    background: none;
+  }
 }
 .works__body {
   max-width: 70%;
@@ -145,6 +144,8 @@ h1, h2, h3, h4, h5, h6, p {
   line-height: 60px;
   color: #21243D;
 }
+
+
 @media (max-width: 370px) {
   .container {
     margin: 10px 15px;

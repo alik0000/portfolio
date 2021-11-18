@@ -33,10 +33,10 @@
       <div class="column__right">
         <div class="title-container">Message me</div>
         <validation-observer v-slot="{ handleSubmit }">
-          <form action="" class="from" @submit.prevent="handleSubmit(send)">
-            <div class="contact__fields">
+          <form class="form" @submit.prevent="handleSubmit(send)">
+            <div class="contact__field">
               <div class="form__field field__name">
-                  <input type="text" placeholder="Name" v-model="dataForm.name" required>
+                <input type="text" placeholder="Name" v-model="dataForm.name" required>
               </div>
               <div class="form__field field__email">
                 <validation-provider
@@ -109,8 +109,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.contact {
+  margin-top: 90px;
+}
+.contact-container {
+  padding: 0;
+}
 .contact__content {
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 .title {
@@ -128,6 +136,11 @@ export default {
   font-weight: normal;
   width: 50%;
 }
+.column__right {
+  position: relative;
+  width: 50%;
+}
+
 .row {
   width: fit-content;
   display: flex;
@@ -140,19 +153,16 @@ export default {
 .info {
   margin-left: 10px;
 }
-.form__field{
-  height: 45px;
+.contact__field{
   width: 100%;
-  margin-bottom: 25px;
-}
-.contact__fields {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 49%);
   justify-content: space-between;
-  grid-column-gap: 50px;
 }
-.field__textarea{
-  height: 80px;
-  width: 100%;
+.form__field{
+  position: relative;
+  height: 45px;
+  margin-bottom: 25px;
 }
 .invalid {
   border-color: crimson;
@@ -160,7 +170,7 @@ export default {
 }
 input,
 textarea{
-  height: 70%;
+  height: 100%;
   width: 100%;
   border: 1px solid lightgrey;
   border-radius: 6px;
@@ -169,10 +179,27 @@ textarea{
   font-size: 17px;
   font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease;
-
+  box-sizing: border-box;
 }
 input:focus,
 textarea:focus{
   border-color: #545454;
+}
+@media (max-width: 370px) {
+  .column__left {
+    position: relative;
+    width: fit-content;
+  }
+  .column__right {
+    position: relative;
+    width: 100%;
+  }
+  .contact__field{
+    grid-template-columns: 100%;
+  }
+  .form {
+    position: relative;
+    width: 100%;
+  }
 }
 </style>

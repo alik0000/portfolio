@@ -54,7 +54,8 @@ export default {
 }
 .header {
   height: 70px;
-  position: relative;
+  position: fixed;
+  z-index: 1000;
   &-container {
     left: 0;
     top: 0;
