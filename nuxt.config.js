@@ -68,5 +68,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ["vee-validate/dist/rules"],
+  },
+
+  env: {
+    baseURL: process.env.BASE_URL || 'https://api.github.com/users/alijonKurbanov1999/repos'
   }
 }

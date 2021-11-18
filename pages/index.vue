@@ -63,7 +63,36 @@
 
 <script>
 import WorksList from "~/components/works/WorksList";
+// import axios from 'axios'
+
 export default {
+  mounted() {
+    this.$store.dispatch('initRepo/initData')
+  },
+  // asyncData() {
+  //   return axios.get(process.env.baseURL).then(response => {
+  //     for (let i in response.data) {
+  //       // Log the repo name
+  //       console.log('Repo:', response.data[i].name);
+  //
+  //       // Log the repo description
+  //       console.log('Description:', response.data[i].description);
+  //
+  //       // Log the repo url
+  //       console.log('URL:', response.data[i].html_url);
+  //
+  //       // Log the repo created data
+  //       console.log('Updated:', response.data[i].created_at);
+  //
+  //       // Log the repo updated data
+  //       console.log('Updated:', response.data[i].updated_at);
+  //
+  //       // Add a separator between each repo
+  //       console.log('=========================')
+  //
+  //     }
+  //   })
+  // },
   components: {WorksList}
 }
 </script>

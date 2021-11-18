@@ -1,27 +1,26 @@
 <template>
   <article class="works__content">
-    <div class="works__item">
+    <div v-for="post in loadedPosts" :key="post.id" class="works__item">
       <div class="works_margin-img image-dashboard">
 <!--        <img src="~/assets/img/portraits.png" alt="portraits">-->
       </div>
       <div class="works__body">
         <h4 class="works__title">
-          Designing Dashboards
+          {{ post.name }}
         </h4>
         <div class="works__info">
-          <div class="works__year">2020</div>
-          <div class="works__category">Dashboard</div>
+          <div class="works__year">{{ post.created_at }}</div>
+          <div class="works__category">{{ post.visibility }}</div>
         </div>
         <p class="text">
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim
-          velit mollit. Exercitation veniam consequat sunt nostrud amet.
+          {{ post.description }}
         </p>
       </div>
     </div>
 
-    <div class="works__item">
+<!--    <div class="works__item">
       <div class="works_margin-img image-portraits">
-<!--        <img src="~/assets/img/designing.png" alt="">-->
+&lt;!&ndash;        <img src="~/assets/img/designing.png" alt="">&ndash;&gt;
       </div>
       <div class="works__body">
         <h4 class="works__title">
@@ -40,7 +39,7 @@
 
     <div class="works__item">
       <div class="works_margin-img image-typography">
-<!--        <img src="~/assets/img/typography.png" alt="">-->
+&lt;!&ndash;        <img src="~/assets/img/typography.png" alt="">&ndash;&gt;
       </div>
       <div class="works__body">
         <h4 class="works__title">
@@ -55,14 +54,21 @@
           Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
         </p>
       </div>
-    </div>
+    </div>-->
 
   </article>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "WorksList"
+  name: "WorksList",
+  computed: {
+    ...mapGetters({
+      loadedPosts: 'initRepo/loadedPosts'
+    }),
+  },
 }
 </script>
 
