@@ -32,8 +32,22 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    // GraphQl Apollo Client
+    '@nuxtjs/apollo'
   ],
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://api.github.com/graphql',
+        httpLinkOptions: {
+          headers: {
+            "Authorization": 'Bearer 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'
+          }
+        }
+      }
+    }
+  },
 
   fontawesome: {
     component: 'fa',
@@ -70,7 +84,5 @@ export default {
     transpile: ["vee-validate/dist/rules"],
   },
 
-  env: {
-    baseURL: process.env.BASE_URL || 'https://api.github.com/users/alijonKurbanov1999/repos'
-  }
+  env: {}
 }

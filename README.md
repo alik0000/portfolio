@@ -1,4 +1,4 @@
-# partfolio
+# portfolio
 
 ## Build Setup
 

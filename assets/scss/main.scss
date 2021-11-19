@@ -84,15 +84,16 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .works__year {
-  width: 62px;
+  width: fit-content;
   height: 27px;
   background: #142850;
   border-radius: 16px;
   color: white;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 18px;
   text-align: center;
   margin-right: 10px;
+  padding: 0.5rem 1rem;
 }
 .works__category {
   font-family: Heebo, sans-serif;
