@@ -7,7 +7,7 @@
           {{ post.name }}
         </h4>
         <div class="works__info">
-          <div class="works__year">{{ post.createdAt }}</div>
+          <div class="works__year">{{ new Date(post.createdAt).toLocaleDateString() }}</div>
           <div class="works__category">{{ post.visibility }}</div>
         </div>
         <p class="text">
@@ -21,7 +21,7 @@
 
 <script>
 import gql from "graphql-tag"
-import WorkImg from "~/components/works/WorkImg";
+import WorkImg from "~/components/works/WorkImg"
 
 export default {
   name: "WorksList",
@@ -30,7 +30,7 @@ export default {
     user: gql`
     query getRepos {
     user(login: "alijonKurbanov1999"){
-      repositories(first: 12){
+      repositories(first: 14){
         nodes{
           name,
           description,
@@ -41,7 +41,7 @@ export default {
         }
       }
     }`
-  },
+  }
 }
 
 </script>

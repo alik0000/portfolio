@@ -34,7 +34,8 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/fontawesome',
     // GraphQl Apollo Client
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    '@nuxtjs/dotenv'
   ],
   apollo: {
     clientConfigs: {
@@ -42,8 +43,11 @@ export default {
         httpEndpoint: 'https://api.github.com/graphql',
         httpLinkOptions: {
           headers: {
-            "Authorization": 'Bearer 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'
+            "Authorization": `Bearer ${process.env["TOKEN_KEY"]}`
           }
+        },
+        onError: (e) => {
+          console.log(e)
         }
       }
     }
